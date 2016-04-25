@@ -1,0 +1,1 @@
+package com.halal.web.sa.controller;public abstract class BaseController {	}
