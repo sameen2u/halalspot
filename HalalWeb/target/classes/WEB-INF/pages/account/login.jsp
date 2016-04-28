@@ -1,296 +1,186 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <!-- Basic Page Needs
-  ================================================== -->
-    <meta charset="utf-8">
-    <title>Flat Login</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Mobile Specific Metas
-  ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- CSS
-  =======================================https://marketplace.eclipse.org/category/free-tagging-5=========== -->
-
-    <!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	<script type="text/javascript">
-	(function( $ ) {
-		  // constants
-		  var SHOW_CLASS = 'show',
-		      HIDE_CLASS = 'hide',
-		      ACTIVE_CLASS = 'active';
-		  
-		  $( '.tabs' ).on( 'click', 'li a', function(e){
-		    e.preventDefault();
-		    var $tab = $( this ),
-		         href = $tab.attr( 'href' );
-		  
-		     $( '.active' ).removeClass( ACTIVE_CLASS );
-		     $tab.addClass( ACTIVE_CLASS );
-		  
-		     $( '.show' )
-		        .removeClass( SHOW_CLASS )
-		        .addClass( HIDE_CLASS )
-		        .hide();
-		    
-		      $(href)
-		        .removeClass( HIDE_CLASS )
-		        .addClass( SHOW_CLASS )
-		        .hide()
-		        .fadeIn( 550 );
-		  });
-		})( jQuery );
-	</script>
+<%@ include file="../header.jsp"%>
+<script src="http://localhost:9090/HalalWeb/static/js/login.js"></script>
+<link href="http://localhost:9090/HalalWeb/static/css/login.css" rel="stylesheet" type="text/css"  media="all" />
 	
-	<style type="text/css">
-	@import url(http://fonts.googleapis.com/css?family=Roboto:100);
-@import url(http://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);
-
-body {
-  background: #1a1a1a;
-  color: white;
-  font-family: 'Roboto';
-}
-.flat-form {
-  background: #e74c3c;
-  margin: 25px auto;
-  width: 390px;
-  height: 340px;
-  position: relative;
-  font-family: 'Roboto';
-}
-.tabs {
-  background: #c0392b;
-  height: 40px;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  width: 100%;
-  position: relative;
-  display: block;
-  margin-bottom: 20px;
-}
-.tabs li {
-  display: block;
-  float: left;
-  margin: 0;
-  padding: 0;
-}
-.tabs a {
-  background: #c0392b;
-  display: block;
-  float: left;
-  text-decoration: none;
-  color: white;
-  font-size: 16px;
-  padding: 12px 22px 12px 22px;
-  /*border-right: 1px solid @tab-border;*/
-
-}
-.tabs li:last-child a {
-  border-right: none;
-  width: 174px;
-  padding-left: 0;
-  padding-right: 0;
-  text-align: center;
-}
-.tabs a.active {
-  background: #e74c3c;
-  border-right: none;
-  -webkit-transition: all 0.5s linear;
-	-moz-transition: all 0.5s linear;
-	transition: all 0.5s linear;
-}
-.form-action {
-  padding: 0 20px;
-  position: relative;
-}
-
-.form-action h1 {
-  font-size: 42px;
-  padding-bottom: 10px;
-}
-.form-action p {
-  font-size: 12px;
-  padding-bottom: 10px;
-  line-height: 25px;
-}
-form {
-  padding-right: 20px !important;
-}
-form input[type=text],
-form input[type=password],
-form input[type=submit] {
-  font-family: 'Roboto';
-}
-
-form input[type=text],
-form input[type=password] {
-  width: 100%;
-  height: 40px;
-  margin-bottom: 10px;
-  padding-left: 15px;
-  background: #fff;
-  border: none;
-  color: #e74c3c;
-  outline: none;
-}
-
-.dark-box {
-  background: #5e0400;
-  box-shadow: 1px 3px 3px #3d0100 inset;
-  height: 40px;
-  width: 50px;
-}
-.form-action .dark-box.bottom {
-  position: absolute;
-  right: 0;
-  bottom: -24px;
-}
-.tabs + .dark-box.top {
-  position: absolute;
-  right: 0;
-  top: 0px;
-}
-.show {
-  display: block;
-}
-.hide {
-  display: none;
-}
-
-.button {
-    border: none;
-    display: block;
-    background: #136899;
-    height: 40px;
-    width: 80px;
-    color: #ffffff;
-    text-align: center;
-    border-radius: 5px;
-    /*box-shadow: 0px 3px 1px #2075aa;*/
-  	-webkit-transition: all 0.15s linear;
-	  -moz-transition: all 0.15s linear;
-	  transition: all 0.15s linear;
-}
-
-.button:hover {
-  background: #1e75aa;
-  /*box-shadow: 0 3px 1px #237bb2;*/
-}
-
-.button:active {
-  background: #136899;
-  /*box-shadow: 0 3px 1px #0f608c;*/
-}
-
-::-webkit-input-placeholder {
-  color: #e74c3c;
-}
-:-moz-placeholder {
-  /* Firefox 18- */
-  color: #e74c3c;
-}
-::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #e74c3c;
-}
-:-ms-input-placeholder {
-  color: #e74c3c;
-}
-	</style>
-</head>
-
-<%-- <c:import url="../header.jsp"/> --%>
-
-<body>
-
-    <div class="container">
-        <div class="flat-form">
-            <ul class="tabs">
-                <li>
-                    <a href="#login" class="active">Login</a>
-                </li>
-                <li>
-                    <a href="#register">Register</a>
-                </li>
-                <li>
-                    <a href="#reset">Reset Password</a>
-                </li>
-            </ul>
-            <div id="login" class="form-action show">
-                <h1>Login on webapp</h1>
-                <p>
-                    Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                    Maecenas sed diam eget risus varius bladit sit amet non
-                </p>
-                <form>
-                    <ul>
-                        <li>
-                            <input type="text" placeholder="Username" />
-                        </li>
-                        <li>
-                            <input type="password" placeholder="Password" />
-                        </li>
-                        <li>
-                            <input type="submit" value="Login" class="button" />
-                        </li>
-                    </ul>
-                </form>
-            </div>
-            <!--/#login.form-action-->
-            <div id="register" class="form-action hide">
-                <h1>Register</h1>
-                <p>
-                    You should totally sign up for our super awesome service.
-                    It's what all the cool kids are doing nowadays.
-                </p>
-                <form>
-                    <ul>
-                        <li>
-                            <input type="text" placeholder="Username" />
-                        </li>
-                        <li>
-                            <input type="password" placeholder="Password" />
-                        </li>
-                        <li>
-                            <input type="submit" value="Sign Up" class="button" />
-                        </li>
-                    </ul>
-                </form>
-            </div>
-            <!--/#register.form-action-->
-            <div id="reset" class="form-action hide">
-                <h1>Reset Password</h1>
-                <p>
-                    To reset your password enter your email and your birthday
-                    and we'll send you a link to reset your password.
-                </p>
-                <form>
-                    <ul>
-                        <li>
-                            <input type="text" placeholder="Email" />
-                        </li>
-                        <li>
-                            <input type="text" placeholder="Birthday" />
-                        </li>
-                        <li>
-                            <input type="submit" value="Send" class="button" />
-                        </li>
-                    </ul>
-                </form>
-            </div>
-            <!--/#register.form-action-->
-        </div>
-    </div>
-    <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-</body>
-
-<%-- <c:import url="../footer.jsp"/> --%>
+	<!-- header-section-ends -->
+	<!-- content-section-starts -->
+	<%@include file="login.jspf"%>
+	<div class="content">
+	<div class="container">
+		
+</div>
+<div class="special-offers-section">
+			<div class="container">
+				<div class="special-offers-section-head text-center dotted-line">
+					<h4>Special Offers</h4>
+				</div>
+				<div class="special-offers-section-grids">
+				 <div class="m_3"><span class="middle-dotted-line"> </span> </div>
+				   <div class="container">
+					  <ul id="flexiselDemo3">
+						<li>
+							<div class="offer">
+								<div class="offer-image">	
+									<img src="http://localhost:9090/HalalWeb/static/images/p1.jpg" class="img-responsive" alt=""/>
+								</div>
+								<div class="offer-text">
+									<h4>Olister Combo pack lorem</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+									<input type="button" value="Grab It">
+									<span></span>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</li>
+						<li>
+							<div class="offer">
+								<div class="offer-image">	
+									<img src="http://localhost:9090/HalalWeb/static/images/p2.jpg" class="img-responsive" alt=""/>
+								</div>
+								<div class="offer-text">
+									<h4>Chicken Jumbo pack lorem</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+									<input type="button" value="Grab It">
+									<span></span>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</li>
+						<li>
+							<div class="offer">
+								<div class="offer-image">	
+									<img src="http://localhost:9090/HalalWeb/static/images/p3.jpg" class="img-responsive" alt=""/>
+								</div>
+								<div class="offer-text">
+									<h4>Crab Combo pack lorem</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+									<input type="button" value="Grab It">
+									<span></span>
+								</div>
+								
+								<div class="clearfix"></div>
+								</div>
+						</li>
+						<li>
+							<div class="offer">
+								<div class="offer-image">	
+									<img src="http://localhost:9090/HalalWeb/static/images/p2.jpg" class="img-responsive" alt=""/>
+								</div>
+								<div class="offer-text">
+									<h4>Chicken Jumbo pack lorem</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+									<input type="button" value="Grab It">
+									<span></span>
+								</div>
+								
+								<div class="clearfix"></div>
+								</div>
+					    </li>
+					 </ul>
+				 <script type="text/javascript">
+					$(window).load(function() {
+						
+						$("#flexiselDemo3").flexisel({
+							visibleItems: 3,
+							animationSpeed: 1000,
+							autoPlay: true,
+							autoPlaySpeed: 3000,    		
+							pauseOnHover: true,
+							enableResponsiveBreakpoints: true,
+							responsiveBreakpoints: { 
+								portrait: { 
+									changePoint:480,
+									visibleItems: 1
+								}, 
+								landscape: { 
+									changePoint:640,
+									visibleItems: 2
+								},
+								tablet: { 
+									changePoint:768,
+									visibleItems: 3
+								}
+							}
+						});
+						
+					});
+				    </script>
+				    <script type="text/javascript" src="http://localhost:9090/HalalWeb/static/js/jquery.flexisel.js"></script>
+				</div>
+			</div>
+		</div>
+		</div>
+<div class="clearfix"></div>
+		<div class="contact-section" id="contact">
+			<div class="container">
+				<div class="contact-section-grids">
+					<div class="col-md-3 contact-section-grid">
+						<h4>Site Links</h4>
+						<ul>
+							<li><i class="point"></i></li>
+							<li class="data"><a href="#">About Us</a></li>
+						</ul>
+						<ul>
+							<li><i class="point"></i></li>
+							<li class="data"><a href="#">Contact Us</a></li>
+						</ul>
+						<ul>
+							<li><i class="point"></i></li>
+							<li class="data"><a href="#">Privacy Policy</a></li>
+						</ul>
+						<ul>
+							<li><i class="point"></i></li>
+							<li class="data"><a href="#">Terms of Use</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 contact-section-grid">
+						<h4>Site Links</h4>
+						<ul>
+							<li><i class="point"></i></li>
+							<li class="data"><a href="#">About Us</a></li>
+						</ul>
+						<ul>
+							<li><i class="point"></i></li>
+							<li class="data"><a href="#">Contact Us</a></li>
+						</ul>
+						<ul>
+							<li><i class="point"></i></li>
+							<li class="data"><a href="#">Privacy Policy</a></li>
+						</ul>
+						<ul>
+							<li><i class="point"></i></li>
+							<li class="data"><a href="#">Terms of Use</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 contact-section-grid">
+						<h4>Follow Us On...</h4>
+						<ul>
+							<li><i class="fb"></i></li>
+							<li class="data"> <a href="#">  Facebook</a></li>
+						</ul>
+						<ul>
+							<li><i class="tw"></i></li>
+							<li class="data"> <a href="#">Twitter</a></li>
+						</ul>
+						<ul>
+							<li><i class="in"></i></li>
+							<li class="data"><a href="#"> Linkedin</a></li>
+						</ul>
+						<ul>
+							<li><i class="gp"></i></li>
+							<li class="data"><a href="#">Google Plus</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 contact-section-grid nth-grid">
+						<h4>Subscribe Newsletter</h4>
+						<p>To get latest updates and food deals every week</p>
+						<input type="text" class="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+						<input type="submit" value="submit">
+						</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- content-section-ends -->
+<%@ include file="../footer.jsp"%>

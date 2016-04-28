@@ -3,11 +3,12 @@ Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
+Spoon graphic by <a href="http://www.freepik.com">Freepik</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>
 -->
 <!DOCTYPE html>
 <html>
 <head>
-<title>RECEIPES Bootstarp responsive Website Template| Home :: w3layouts</title>
+<title>Halal Spot</title>
 <link href="http://localhost:9090/HalalWeb/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="http://localhost:9090/HalalWeb/static/js/jquery.min.js"></script>
@@ -26,7 +27,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script>
 	new WOW().init();
 </script>
-<script src="http://localhost:9090/HalalWeb/static/js/simpleCart.min.js"> </script>	
+<!-- <script src="http://localhost:9090/HalalWeb/static/js/simpleCart.min.js"> </script>	 -->
 <script type="text/javascript" src="http://localhost:9090/HalalWeb/static/js/move-top.js"></script>
 <script type="text/javascript" src="http://localhost:9090/HalalWeb/static/js/easing.js"></script>
 <script type="text/javascript">
@@ -36,7 +37,74 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
 				});
 			});
-		</script>
+			
+			// Google address type ahead functionality
+			 var placeSearch, autocomplete;
+		      var componentForm = {
+		        street_number: 'short_name',
+		        route: 'long_name',
+		        locality: 'long_name',
+		        administrative_area_level_1: 'short_name',
+		        country: 'long_name',
+		        postal_code: 'short_name'
+		      };
+		      var options = {
+		    		  types: ['(cities)'],
+		    		  componentRestrictions: {country: "us"}
+		    		 };
+
+		      function initAutocomplete() {
+		        // Create the autocomplete object, restricting the search to geographical
+		        // location types.
+		        autocomplete = new google.maps.places.Autocomplete(
+		            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+		            {types: ['geocode'],componentRestrictions: {country: "in"}});
+
+		        // When the user selects an address from the dropdown, populate the address
+		        // fields in the form.
+		        autocomplete.addListener('place_changed', fillInAddress);
+		      }
+
+		      function fillInAddress() {
+		        // Get the place details from the autocomplete object.
+		        var place = autocomplete.getPlace();
+
+		        for (var component in componentForm) {
+		          document.getElementById(component).value = '';
+		          document.getElementById(component).disabled = false;
+		        }
+
+		        // Get each component of the address from the place details
+		        // and fill the corresponding field on the form.
+		        for (var i = 0; i < place.address_components.length; i++) {
+		          var addressType = place.address_components[i].types[0];
+		          if (componentForm[addressType]) {
+		            var val = place.address_components[i][componentForm[addressType]];
+		            document.getElementById(addressType).value = val;
+		          }
+		        }
+		      }
+
+		      // Bias the autocomplete object to the user's geographical location,
+		      // as supplied by the browser's 'navigator.geolocation' object.
+		      function geolocate() {
+		        if (navigator.geolocation) {
+		          navigator.geolocation.getCurrentPosition(function(position) {
+		            var geolocation = {
+		              lat: position.coords.latitude,
+		              lng: position.coords.longitude
+		            };
+		            var circle = new google.maps.Circle({
+		              center: geolocation,
+		              radius: position.coords.accuracy
+		            });
+		            autocomplete.setBounds(circle.getBounds());
+		          });
+		        }
+		      }
+		    </script>
+		    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuJaCyenO4k6lpxrMxSDyzE52aa5tR4b8&libraries=places&callback=initAutocomplete"
+		        async defer></script>
 </head>
 <body>
     <!-- header-section-starts -->
@@ -44,7 +112,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<div class="top-header">
 				<div class="logo">
-					<a href="http://localhost:9090/HalalWeb"><img src="http://localhost:9090/HalalWeb/static/images/logo.png" class="img-responsive" alt="" /></a>
+					<a href="http://localhost:9090/HalalWeb"><img src="http://localhost:9090/HalalWeb/static/images/fullLogo.png" class="img-responsive" alt="" /></a>
 				</div>
 				
 				<div class="header-right">
@@ -62,10 +130,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		
 		<div class="menu-bar">
 			<div class="container">
+				<div class="search-form-header">
 				<form class="form-wrapper cf">
-     			<input class="searchTitle" "text" placeholder="Search location" required>
-			  	<input class="searchBox" type="text" placeholder="Search for... restaurant, cuisine, dish" required>
-				<button type="button" onclick="search()">Search</button>
-			</form>
+	     			<input class="searchTitle" id="autocomplete" type="text" onFocus="geolocate()"  placeholder="Search location">
+				  	<input class="searchBox" type="text" placeholder="Search for... restaurant, cuisine, dish">
+					<button type="button" onclick="search()">Search</button>
+				</form>
+				</div>
 			</div>
 		</div>		

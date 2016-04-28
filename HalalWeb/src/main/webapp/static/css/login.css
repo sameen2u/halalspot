@@ -1,3 +1,11 @@
+.login-error{
+	color: red;
+	font-size: 15px;
+	text-align: center;
+	list-style: square;
+	list-style-position: inside;
+}
+
 .login-box{
   position:relative;
   margin: 10px auto;
@@ -89,7 +97,7 @@ box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   padding: 0 10px;
   border-radius: 2px;
   color: #333;
-  font-size:0.8rem;
+  font-size:1.8rem;
   -webkit-transition:all 0.1s linear;
   -moz-transition:all 0.1s linear;
   transition:all 0.1s linear;
@@ -114,5 +122,5 @@ box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   text-align: left;
   text-decoration: underline;
   color: #888;
-  font-size: 0.75rem;
+  font-size: 1.50rem;
 }

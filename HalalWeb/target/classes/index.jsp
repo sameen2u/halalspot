@@ -1,220 +1,372 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>cuision Website Template | Contact :: W3layouts</title>
-		<link href="http://localhost:9090/HalalWeb/static/css/style.css" rel="stylesheet" type="text/css"  media="all" />
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		<script type="text/javascript" src="http://localhost:9090/HalalWeb/static/js/move-top.js"></script>
-		<link href="http://localhost:9090/HalalWeb/static/css/slider.css" rel="stylesheet" type="text/css"  media="all" />
-		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script type="text/javascript" src="http://localhost:9090/HalalWeb/static/js/jquery.easing.1.3.js"></script> 
-		<script type="text/javascript" src="http://localhost:9090/HalalWeb/static/js/camera.min.js"></script>
-		
-		
-			 
-				<script type="text/javascript">
-			   jQuery(function(){
-				jQuery('#camera_wrap_1').camera({
-					height: '500px',
-					pagination: false,
-				});
-			});
-		  </script>
-		  <script type="text/javascript">
-			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
-					event.preventDefault();
-					$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
-				});
-			});
-		</script>
-	</head>
-	<body>
-		<!---start-wrap
-		
-		---->
-			<!---start-header---->
-			<!----start--imageslider----->
-		       <!--start-image-slider---->
-								<div class="slider"  id="top">					     
-										<div class="camera_wrap camera_azure_skin" id="camera_wrap_1">									           
-											      <div data-src="http://localhost:9090/HalalWeb/static/images/slider1.jpg">  </div> 
-											      <div data-src="http://localhost:9090/HalalWeb/static/images/slider2.jpg">  </div>
-											      <div data-src="http://localhost:9090/HalalWeb/static/images/slider3.jpg">  </div>
-											      <div data-src="http://localhost:9090/HalalWeb/static/images/slider4.jpg">  </div>
-											</div>
-							   		   <div class="clear"> </div>					       
-							 		</div>
-		      			<!--End-image-slider---->
-		        <div class="clear"> </div>
-			<!----End--imageslider----->
-			<!----start-top-header----->
-			<div class="wrap">
-				<div class="container">
-     		 <div class="top-header">
-     		 	<div class="clear"> </div>
-     		 	<div class="main-header">
-     		 		<div class="logo">
-     		 			<h1><a href="http://localhost:9090/HalalWeb"><img src="http://localhost:9090/HalalWeb/static/images/logo.png" title="logo" /></a></h1>
-     		 		</div>
-     		 		<div class="top-nav">
-     		 			<ul>
-     		 				<li><a href="about.html">About us</a></li>
-     		 				<li><a href="gallery.html">Add Hotel</a></li>
-     		 				<li><a href="login">Login/Sign Up</a></li>
-     		 				<div class="clear"> </div>
-     		 			</ul>
-     		 		</div>
-     		 		<div class="clear"> </div>
-     		 	</div>
-     		 </div>
-     		 <p><p><p><p><p><p>
-     		<!--  <div class="top-search">
-     		 		<form>
-     		 			<input type="text"><input type="submit" value="" />
-     		 		</form>
-     		 </div> -->
-     		 <form class="form-wrapper cf">
-     			<input class="searchTitle" "text" placeholder="Search location" required>
-			  	<input class="searchBox" type="text" placeholder="Search for... restaurant, cuisine, dish" required>
-				<button type="submit">Search</button>
-			</form>
-		
-     		  <!----End-top-header----->
-			<!---End-header---->
-			<!---start-content---->
-			<div class="content1">
-						<div class="top-grids">
-							<div class="top-grid">
-								<h3>Welcome</h3>
-								<img src="http://localhost:9090/HalalWeb/static/images/slider1.jpg" title="image-name" />
-								<a href="#">Read more</a>
-							</div>
-							<div class="top-grid">
-								<h3>Our history</h3>
-								<img src="http://localhost:9090/HalalWeb/static/images/slider2.jpg" title="image-name" />
-								<a href="#">Read more</a>
-							</div>
-							<div class="top-grid" id="last-grid">
-								<h3>Our Events</h3>
-								<img src="http://localhost:9090/HalalWeb/static/images/slider3.jpg" title="image-name" />
-								<a href="#">Read more</a>
-							</div>
-							<div class="clear"> </div>
-						</div>
-						<div class="clear"> </div>
-						<div class="mid-grids">
-							<div class="mid-grid">
-								<h3>About us</h3>
-								<span>Curabitur condimentum erat non ultricies covlis augue turpis varius orci sed.Sed ultrices posere mauris nec volutpat.</span>
-								<p>Proin lobortis erat sed metus interdum vel is all si aliquetsil purus cursus. Sed lacus erat bibnioum in rutrumriCurabitur condimentum erat non i sed.Sed ultrices posere mauris nec volutpat. ve asl luctus id libero.Suspendis alelri interdum poatill aliquet. Nunc molestie felis quis turis fringilla alryjhl tincunt. Nulla facilisi. Sed ac imperdiet sem.</p>
-								<p>Curabitur condimentum erat non ultricies covlis augue turpis varius orci sed.Sed ultrices posere mauris nec volutpat.</p>
-								<a class="button" href="#">Read more</a>
-							</div>
-							<div class="mid-grid">
-								<h3>Services</h3>
-								<p>Curabitur condimentum erat non ultricies covlis augue turpis varius orci sed.Sed ultrices posere mauris nec volutpat.</p>
-								<ul>
-									<li><a href="#">Phasellus in urna</a></li>
-									<li><a href="#">Vestibulum vitae lorem</a></li>
-									<li><a href="#">augue turpis varius orci</a></li>
-									<li><a href="#">sed.Sed ultrices posere</a></li>
-									<li><a href="#">Phasellus in urna</a></li>
-									<li><a href="#">Vestibulum vitae lorem</a></li>
-								</ul>
-								<a class="button" href="#">Read more</a>
-							</div>
-							<div class="mid-grid" id="last-grid1">
-								<h3>Latest-News</h3>
-								<p>Curabitur condimentum erat non ultricies covlis augue turpis varius orci sed.Sed ultrices posere mauris nec volutpat.</p>
-								<div class="latest-news-grid">
-									<div class="latest-news-pic">
-										<img src="http://localhost:9090/HalalWeb/static/images/n1.jpg" title="imag-name" />
-									</div>
-									<div class="latest-news-info">
-										<a href="#">jan 21.01.2013</a>
-										<p>Interdum vel is all si aliquetsil purus cursus. Sed lacus erat bibnioum in rutrumri ve asl luctus id libero</p>
-									</div>
-									<div class="clear"> </div>
-								</div>
-								<div class="latest-news-grid">
-									<div class="latest-news-pic">
-										<img src="http://localhost:9090/HalalWeb/static/images/n2.jpg" title="imag-name" />
-									</div>
-									<div class="latest-news-info">
-										<a href="#">jan 21.01.2013</a>
-										<p>Interdum vel is all si aliquetsil purus cursus. Sed lacus erat bibnioum in rutrumri ve asl luctus id libero</p>
-									</div>
-									<div class="clear"> </div>
-								</div>
-								<a class="button" href="#">Read more</a>
-							</div>
-							<div class="clear"> </div>
-						</div>
-						<div class="bottom-grids">
-							<div class="bottom-grid-videos">
-								<h3>Watch the Video</h3>
-								<div class="video-grid">
-									<img src="http://localhost:9090/HalalWeb/static/images/v1.jpg" title="video-name" />
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at accumsan justo. Vivamus eget volpat lacus nec tristique leoestibulum.</p>
-								</div>
-								<div class="video-grid">
-									<img src="http://localhost:9090/HalalWeb/static/images/v2.jpg" title="video-name" />
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at accumsan justo. Vivamus eget volpat lacus nec tristique leoestibulum.</p>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="tips">
-								<h3>Cooking Tips</h3>
-								<div class="menu_container">
-									<p class="menu_head">Cooking Tip1<span class="plusminus">+</span></p>
-										<div class="menu_body" style="display: none;">
-										<p>containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-										</div>
-									<p class="menu_head">Cooking Tip2<span class="plusminus">+</span></p>
-										<div class="menu_body" style="display: none;">
-										<p>theonlytutorials.com is providing a great varitey of tutorials and scripts to use it immediate on any project!</p>
-										</div>
-								</div>
-							</div>
-						<script type="text/javascript">
-							$(document).ready(function(){
-								$(".menu_body").hide();
-								//toggle the componenet with class menu_body
-								$(".menu_head").click(function(){
-									$(this).next(".menu_body").slideToggle(600); 
-									var plusmin;
-									plusmin = $(this).children(".plusminus").text();
-									
-									if( plusmin == '+')
-									$(this).children(".plusminus").text('-');
-									else
-									$(this).children(".plusminus").text('+');
-								});
-							});
-						</script>
-							<div class="clear"> </div>
-						</div>
+
+<%@ include file="WEB-INF/pages/header.jsp"%>
+<<script type="text/javascript">
+$(document).ready(function(){
+	$('.menu-bar').hide();
+});
+</script>
+			<!-- <div class="menu-bar">
+			<div class="container">
+				<div class="top-menu">
+					<ul>
+						<li class="active"><a href="#Home" class="scroll">Home</a></li>|
+						<li><a href="popular-restaurents.html">Popular Restaurants</a></li>|
+						<li><a href="order.html">Order</a></li>|
+						<li><a href="contact.html">contact</a></li>
+						<div class="clearfix"></div>
+					</ul>
 				</div>
-			<!---End-content---->
-		</div>
-		<!---End-wrap---->
-		</div>
-		<div class="footer">
-				<div class="top-to-page">
-						<a href="#top" class="scroll"> </a>
-						<div class="clear"> </div>
+				<div class="login-section">
+					<ul>
+						<li><a href="login.html">Login</a>  </li> |
+						<li><a href="register.html">Register</a> </li> |
+						<li><a href="#">Help</a></li>
+						<div class="clearfix"></div>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div> -->
+		<div class="banner wow fadeInUp" data-wow-delay="0.4s" id="Home">
+		    <div class="container">
+				<div class="banner-info">
+					<div class="banner-info-head text-center wow fadeInLeft" data-wow-delay="0.5s">
+						<h1>Network of over 5000 Restaurants</h1>
+						<div class="line">
+							<h2>Only Halal</h2>
+						</div>
 					</div>
-					<p>Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+					<!-- <div class="form-list wow fadeInRight" data-wow-delay="0.5s">
+						<form>
+						  <ul class="navmain">
+							<li><span>Location Name</span>
+							 <input type="text" class="text" value="Secunderabad" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Secunderabad';}">
+							</li>
+							<li><span>Restaurant Name</span>
+							 <input type="text" class="text" value="Swagath Grand" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Swagath Grand';}">
+							</li>
+							<li><span>Cuisine Name</span>
+							 <input type="text" class="text" value="Chicken Biriyani" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Chicken Biriyani';}">
+						    </li>
+						  </ul>
+						</form>
+						</div> -->
+			<form class="form-wrapper cf" style="padding: 14px;     width: 63%;">
+     			<input class="searchTitle" "text" placeholder="Search location" required style="width: 28%;">
+			  	<input class="searchBox" type="text" placeholder="Search for... restaurant, cuisine, dish" required style="width: 56%;">
+				<button type="button" onclick="search()">Search</button>
+			</form>
+					<!-- start search
+		 <div class="main-search">
+	        <form action="search.html">
+	           <input type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text"/>
+	            <input type="submit" value=""/>
+	        </form>
+	        <div class="close"><img src="http://localhost:9090/HalalWeb/static/images/cross.png" /></div>
+	    </div>
+	    <div class="srch"><button></button></div>
+		<script type="text/javascript">
+	         $('.main-search').hide();
+	        $('button').click(function (){
+	            $('.main-search').show();
+	            $('.main-search text').focus();
+	        }
+	        );
+	        $('.close').click(function(){
+	            $('.main-search').hide();
+	        });
+	    </script>-->
+					
+				</div>
 			</div>
 		</div>
-	</body>
-</html>
-
+	</div>
+	<!-- header-section-ends -->
+	<!-- content-section-starts -->
+	<div class="content">
+		<div class="ordering-section" id="Order">
+			<div class="container">
+				<div class="ordering-section-head text-center wow bounceInRight" data-wow-delay="0.4s">
+					<h3>Ordering food was never so easy</h3>
+					<div class="dotted-line">
+						<h4>Just 4 steps to follow </h4>
+					</div>
+				</div>
+				<div class="ordering-section-grids">
+					<div class="col-md-3 ordering-section-grid">
+						<div class="ordering-section-grid-process wow fadeInRight" data-wow-delay="0.4s"">
+							<i class="one"></i><br>
+							<i class="one-icon"></i>
+							<p>Choose <span>Your Restaurant</span></p>
+							<label></label>
+						</div>
+					</div>
+					<div class="col-md-3 ordering-section-grid">
+						<div class="ordering-section-grid-process wow fadeInRight" data-wow-delay="0.4s"">
+							<i class="two"></i><br>
+							<i class="two-icon"></i>
+							<p>Order  <span>Your Cuisine</span></p>
+							<label></label>
+						</div>
+					</div>
+					<div class="col-md-3 ordering-section-grid">
+						<div class="ordering-section-grid-process wow fadeInRight" data-wow-delay="0.4s"">
+							<i class="three"></i><br>
+							<i class="three-icon"></i>
+							<p>Pay   <span> online / on delivery</span></p>
+							<label></label>
+						</div>
+					</div>
+					<div class="col-md-3 ordering-section-grid">
+						<div class="ordering-section-grid-process wow fadeInRight" data-wow-delay="0.4s"">
+							<i class="four"></i><br>
+							<i class="four-icon"></i>
+							<p>Enjoy <span>your food </span></p>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="special-offers-section">
+			<div class="container">
+				<div class="special-offers-section-head text-center dotted-line">
+					<h4>Special Offers</h4>
+				</div>
+				<div class="special-offers-section-grids">
+				 <div class="m_3"><span class="middle-dotted-line"> </span> </div>
+				   <div class="container">
+					  <ul id="flexiselDemo3">
+						<li>
+							<div class="offer">
+								<div class="offer-image">	
+									<img src="http://localhost:9090/HalalWeb/static/images/p1.jpg" class="img-responsive" alt=""/>
+								</div>
+								<div class="offer-text">
+									<h4>Olister Combo pack lorem</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+									<input type="button" value="Grab It">
+									<span></span>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</li>
+						<li>
+							<div class="offer">
+								<div class="offer-image">	
+									<img src="http://localhost:9090/HalalWeb/static/images/p2.jpg" class="img-responsive" alt=""/>
+								</div>
+								<div class="offer-text">
+									<h4>Chicken Jumbo pack lorem</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+									<input type="button" value="Grab It">
+									<span></span>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</li>
+						<li>
+							<div class="offer">
+								<div class="offer-image">	
+									<img src="http://localhost:9090/HalalWeb/static/images/p3.jpg" class="img-responsive" alt=""/>
+								</div>
+								<div class="offer-text">
+									<h4>Crab Combo pack lorem</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+									<input type="button" value="Grab It">
+									<span></span>
+								</div>
+								
+								<div class="clearfix"></div>
+								</div>
+						</li>
+						<li>
+							<div class="offer">
+								<div class="offer-image">	
+									<img src="http://localhost:9090/HalalWeb/static/images/p2.jpg" class="img-responsive" alt=""/>
+								</div>
+								<div class="offer-text">
+									<h4>Chicken Jumbo pack lorem</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+									<input type="button" value="Grab It">
+									<span></span>
+								</div>
+								
+								<div class="clearfix"></div>
+								</div>
+					    </li>
+					 </ul>
+				 <script type="text/javascript">
+					$(window).load(function() {
+						
+						$("#flexiselDemo3").flexisel({
+							visibleItems: 3,
+							animationSpeed: 1000,
+							autoPlay: false,
+							autoPlaySpeed: 3000,    		
+							pauseOnHover: true,
+							enableResponsiveBreakpoints: true,
+							responsiveBreakpoints: { 
+								portrait: { 
+									changePoint:480,
+									visibleItems: 1
+								}, 
+								landscape: { 
+									changePoint:640,
+									visibleItems: 2
+								},
+								tablet: { 
+									changePoint:768,
+									visibleItems: 3
+								}
+							}
+						});
+						
+					});
+				    </script>
+				    <script type="text/javascript" src="http://localhost:9090/HalalWeb/static/js/jquery.flexisel.js"></script>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="popular-restaurents" id="Popular-Restaurants">
+			<div class="container">
+				<div class="col-md-4 top-restaurents">
+					<div class="top-restaurent-head">
+						<h3>Top Restaurants</h3>
+					</div>
+					<div class="top-restaurent-grids">
+						<div class="top-restaurent-logos">
+							<div class="res-img-1 wow bounceIn" data-wow-delay="0.4s">
+								<img src="http://localhost:9090/HalalWeb/static/images/restaurent-1.jpg" class="img-responsive" alt="" />
+							</div>
+							<div class="res-img-2 wow bounceIn" data-wow-delay="0.4s">
+							    <img src="http://localhost:9090/HalalWeb/static/images/restaurent-2.jpg" class="img-responsive" alt="" />
+							</div>
+							<div class="res-img-1 wow bounceIn" data-wow-delay="0.4s">
+							    <img src="http://localhost:9090/HalalWeb/static/images/restaurent-3.jpg" class="img-responsive" alt="" />
+							</div>
+							<div class="res-img-2 wow bounceIn" data-wow-delay="0.4s">
+							    <img src="http://localhost:9090/HalalWeb/static/images/restaurent-4.jpg" class="img-responsive" alt="" />
+							</div>
+							<div class="res-img-1 nth-grid1 wow bounceIn" data-wow-delay="0.4s">
+							    <img src="http://localhost:9090/HalalWeb/static/images/restaurent-5.jpg" class="img-responsive" alt="" />
+							</div>
+							<div class="res-img-2 nth-grid1 wow bounceIn" data-wow-delay="0.4s">
+							    <img src="http://localhost:9090/HalalWeb/static/images/restaurent-6.jpg" class="img-responsive" alt="" />
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8 top-cuisines">
+					<div class="top-cuisine-head">
+						<h3>Top Cuisines</h3>
+					</div>
+					<div class="top-cuisine-grids">
+						<div class="top-cuisine-grid wow bounceIn" data-wow-delay="0.4s">
+						    <a href=""><img src="http://localhost:9090/HalalWeb/static/images/cuisine1.jpg" class="img-responsive" alt="" /> </a>
+							<label>Cuisine Name</label>
+					    </div>
+						<div class="top-cuisine-grid wow bounceIn" data-wow-delay="0.4s">
+						    <a href=""><img src="http://localhost:9090/HalalWeb/static/images/cuisine2.jpg" class="img-responsive" alt="" /> </a>
+							<label>Cuisine Name</label>
+					    </div>
+						<div class="top-cuisine-grid wow bounceIn" data-wow-delay="0.4s">
+						    <a href=""><img src="http://localhost:9090/HalalWeb/static/images/cuisine3.jpg" class="img-responsive" alt="" /> </a>
+							<label>Cuisine Name</label>
+					    </div>
+						<div class="top-cuisine-grid nth-grid wow bounceIn" data-wow-delay="0.4s">
+						    <a href=""><img src="http://localhost:9090/HalalWeb/static/images/cuisine4.jpg" class="img-responsive" alt="" /> </a>
+							<label>Cuisine Name</label>
+					    </div>
+						<div class="top-cuisine-grid nth-grid1 wow bounceIn" data-wow-delay="0.4s">
+						    <a href=""><img src="http://localhost:9090/HalalWeb/static/images/cuisine5.jpg" class="img-responsive" alt="" /> </a>
+							<label>Cuisine Name</label>
+					    </div>
+						<div class="top-cuisine-grid nth-grid1 wow bounceIn" data-wow-delay="0.4s">
+						    <a href=""><img src="http://localhost:9090/HalalWeb/static/images/cuisine6.jpg" class="img-responsive" alt="" /> </a>
+							<label>Cuisine Name</label>
+					    </div>
+						<div class="top-cuisine-grid nth-grid1 wow bounceIn" data-wow-delay="0.4s">
+						    <a href=""><img src="http://localhost:9090/HalalWeb/static/images/cuisine7.jpg" class="img-responsive" alt="" /> </a>
+							<label>Cuisine Name</label>
+					    </div>
+						<div class="top-cuisine-grid nth-grid nth-grid1 wow bounceIn" data-wow-delay="0.4s">
+						    <a href=""><img src="http://localhost:9090/HalalWeb/static/images/cuisine8.jpg" class="img-responsive" alt="" /> </a>
+							<label>Cuisine Name</label>
+					    </div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="service-section">
+			<div class="service-section-top-row">
+				<div class="container">
+					<div class="service-section-top-row-grids wow bounceInLeft" data-wow-delay="0.4s">
+					<div class="col-md-3 service-section-top-row-grid1">
+						<h3>Enjoy Exclusive Food Order any of these</h3>
+					</div>
+					<div class="col-md-2 service-section-top-row-grid2">
+						<ul>
+							<li><i class="arrow"></i></li>
+							<li class="lists">Party Orders</li>
+						</ul>
+						<ul>
+							<li><i class="arrow"></i></li>
+							<li class="lists">Home Made Food</li>
+						</ul>
+						<ul>
+							<li><i class="arrow"></i></li>
+							<li class="lists"> Diet Food </li>
+						</ul>
+					</div>
+					<div class="col-md-5 service-section-top-row-grid3">
+						<img src="http://localhost:9090/HalalWeb/static/images/lunch.png" class="img-responsive" alt="" />
+					</div>
+					<div class="col-md-2 service-section-top-row-grid4 wow swing animated" data-wow-delay= "0.4s">
+						<a href="order.html"><input type="submit" value="Order Now"></a>
+					</div>
+					<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+			<div class="service-section-bottom-row">
+				<div class="container">
+					<div class="col-md-4 service-section-bottom-grid wow bounceIn "data-wow-delay="0.2s">
+						<div class="icon">
+							<img src="http://localhost:9090/HalalWeb/static/images/icon1.jpg" class="img-responsive" alt="" />
+						</div>
+						<div class="icon-data">
+							<h4>100% Service Guarantee</h4>
+							<p>Lorem ipsum dolor sit amet, consect-etuer adipiscing elit. </p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-md-4 service-section-bottom-grid wow bounceIn "data-wow-delay="0.2s">
+						<div class="icon">
+							<img src="http://localhost:9090/HalalWeb/static/images/icon2.jpg" class="img-responsive" alt="" />
+						</div>
+						<div class="icon-data">
+							<h4>Fully Secure Payment</h4>
+							<p>Lorem ipsum dolor sit amet, consect-etuer adipiscing elit. </p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-md-4 service-section-bottom-grid wow bounceIn "data-wow-delay="0.2s">
+						<div class="icon">
+							<img src="http://localhost:9090/HalalWeb/static/images/icon3.jpg" class="img-responsive" alt="" />
+						</div>
+						<div class="icon-data">
+							<h4>Track Your Order</h4>
+							<p>Lorem ipsum dolor sit amet, consect-etuer adipiscing elit. </p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<%@ include file="WEB-INF/pages/footer.jsp"%>

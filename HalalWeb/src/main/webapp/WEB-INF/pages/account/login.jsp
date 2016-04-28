@@ -4,11 +4,13 @@
 	
 	<!-- header-section-ends -->
 	<!-- content-section-starts -->
-	<%@include file="login.jspf"%>
+	
 	<div class="content">
 	<div class="container">
 		
 </div>
+<div class="clearfix"> </div>
+<%@include file="login.jspf"%>
 <div class="special-offers-section">
 			<div class="container">
 				<div class="special-offers-section-head text-center dotted-line">

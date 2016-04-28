@@ -2,92 +2,43 @@
 <%@ include file="WEB-INF/pages/header.jsp"%>
 <<script type="text/javascript">
 $(document).ready(function(){
+	//Reshaping and Aligning the Search box for homepage 
 	$('.menu-bar').hide();
+	$('.form-wrapper').css({'padding': '14px','width':'63%'});
+	$('.searchTitle').css({'width':'28%'});
+	$('.searchBox').css({'width':'56%'});
+	$('.search-form-header').detach().appendTo('.banner-info');
+	
 });
 </script>
-			<!-- <div class="menu-bar">
-			<div class="container">
-				<div class="top-menu">
-					<ul>
-						<li class="active"><a href="#Home" class="scroll">Home</a></li>|
-						<li><a href="popular-restaurents.html">Popular Restaurants</a></li>|
-						<li><a href="order.html">Order</a></li>|
-						<li><a href="contact.html">contact</a></li>
-						<div class="clearfix"></div>
-					</ul>
-				</div>
-				<div class="login-section">
-					<ul>
-						<li><a href="login.html">Login</a>  </li> |
-						<li><a href="register.html">Register</a> </li> |
-						<li><a href="#">Help</a></li>
-						<div class="clearfix"></div>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div> -->
+
 		<div class="banner wow fadeInUp" data-wow-delay="0.4s" id="Home">
 		    <div class="container">
 				<div class="banner-info">
 					<div class="banner-info-head text-center wow fadeInLeft" data-wow-delay="0.5s">
-						<h1>Network of over 5000 Restaurants</h1>
+						<h1>Network of over 5000 Restaurants across India</h1>
 						<div class="line">
 							<h2>Only Halal</h2>
 						</div>
 					</div>
-					<!-- <div class="form-list wow fadeInRight" data-wow-delay="0.5s">
-						<form>
-						  <ul class="navmain">
-							<li><span>Location Name</span>
-							 <input type="text" class="text" value="Secunderabad" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Secunderabad';}">
-							</li>
-							<li><span>Restaurant Name</span>
-							 <input type="text" class="text" value="Swagath Grand" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Swagath Grand';}">
-							</li>
-							<li><span>Cuisine Name</span>
-							 <input type="text" class="text" value="Chicken Biriyani" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Chicken Biriyani';}">
-						    </li>
-						  </ul>
-						</form>
-						</div> -->
-			<form class="form-wrapper cf" style="padding: 14px;     width: 63%;">
+			
+			<!-- <form class="form-wrapper cf" style="padding: 14px;     width: 63%;">
      			<input class="searchTitle" "text" placeholder="Search location" required style="width: 28%;">
 			  	<input class="searchBox" type="text" placeholder="Search for... restaurant, cuisine, dish" required style="width: 56%;">
 				<button type="button" onclick="search()">Search</button>
-			</form>
-					<!-- start search
-		 <div class="main-search">
-	        <form action="search.html">
-	           <input type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text"/>
-	            <input type="submit" value=""/>
-	        </form>
-	        <div class="close"><img src="http://localhost:9090/HalalWeb/static/images/cross.png" /></div>
-	    </div>
-	    <div class="srch"><button></button></div>
-		<script type="text/javascript">
-	         $('.main-search').hide();
-	        $('button').click(function (){
-	            $('.main-search').show();
-	            $('.main-search text').focus();
-	        }
-	        );
-	        $('.close').click(function(){
-	            $('.main-search').hide();
-	        });
-	    </script>-->
-					
+			</form> -->
 				</div>
 			</div>
 		</div>
 	</div>
+	
 	<!-- header-section-ends -->
 	<!-- content-section-starts -->
 	<div class="content">
 		<div class="ordering-section" id="Order">
 			<div class="container">
 				<div class="ordering-section-head text-center wow bounceInRight" data-wow-delay="0.4s">
-					<h3>Ordering food was never so easy</h3>
+					<h3>Spotting Halal food was never so easy</h3>
 					<div class="dotted-line">
 						<h4>Just 4 steps to follow </h4>
 					</div>

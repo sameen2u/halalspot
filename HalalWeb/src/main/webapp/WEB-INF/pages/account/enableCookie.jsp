@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+Please enable cookies first and try login!
 </body>
 </html>

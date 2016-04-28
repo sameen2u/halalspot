@@ -16,6 +16,8 @@
 <mvc:annotation-driven/>
 
 <mvc:view-controller path="/login" view-name="account/login"/>
+<mvc:view-controller path="/search" view-name="search/searchResult"/>
+<mvc:view-controller path="/addRestaurant" view-name="restaurant/registerRestaurant"/>
 
 <!-- <mvc:default-servlet-handler/> -->
 
