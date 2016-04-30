@@ -17,57 +17,101 @@ $(document).ready(function(){
 	
 	//Login functionality
 	  $('.submitButton').on('click',function(){
-	    	//$('#ajax_loading').show();
-		  	var rememberMe=false;
-		  	if($('#rememberMe').is(":checked")){
+			var username = $('#username').val();
+			var password = $('#password').val();
+			var rememberMe = false;
+			if($('#rememberMe').is(":checked")){
 		  		rememberMe = true;
 		  	}
-	    	var formObject =  {"username": $('#username').val(), "password": $('#password').val(), "rememberMe":rememberMe};
-	    	var jsonString = JSON.stringify(formObject);
-		   	$.ajax({
-			       url: 'http://localhost:9191/HalalApi/v1/account/login',
-			       type: 'post',
-			       contentType: "application/json; charset=utf-8",
-			       data: jsonString,
-			       encode:true,
-			       success: function(data) {
-			    	   	if(data.email == $('#username').val()){
-			    	   		createLoginCookie(data,rememberMe);
-			    	   		$('#ajax_loading').hide();
-			    	   		window.location='/HalalWeb';
-			    	   	}
-			    	   	else {
-			    	   		if(data.email == $('#username').val()){
-			    	   			$('.login-error').append('Some internal error, please refresh page and try again Later');
-			    	   		}
-			    	   		else{
-			    	   			$('.login-error').append(data.description);
-			    	   		}		    	   		
-			    	   		console.log('append error msg = '+data.description);
-			    	   		$('#ajax_loading').hide();
-			    	   	}
-			       },
-			       beforeSend: function(){
-			    	   console.log('BeforeSend jsonString -'+jsonString);
-			    	   if(navigator.cookieEnabled ==false){
-			    		   window.location='/HalalWeb/account/enableCookie';
-			    	   }		    	   
-			       },
-			       error: function(jqXHR, textStatus, errorThrown){
-			    	   $('.login-error').append('Some internal error, please refresh page and try again Later');
-			    	   console.log("Something really bad happened- "+textStatus+", ERROR - " + errorThrown);
-			       }
-			   });
+		  login(username, password, rememberMe);
 	    });
 });
 
+function login(username, password, rememberMe){
+	//$('#ajax_loading').show();
+  	var rememberMe=false;
+	var formObject =  {"username": username, "password": password, "rememberMe":rememberMe};
+	var jsonString = JSON.stringify(formObject);
+   	$.ajax({
+	       url: 'http://localhost:9191/HalalApi/v1/account/login',
+	       type: 'post',
+	       contentType: "application/json; charset=utf-8",
+	       data: jsonString,
+	       encode:true,
+	       success: function(data) {
+	    	   	if(data.email == $('#username').val()){
+	    	   		createLoginCookie(data,rememberMe);
+	    	   		$('#ajax_loading').hide();
+	    	   		window.location='/HalalWeb';
+	    	   	}
+	    	   	else {
+	    	   		if(data.email == $('#username').val()){
+	    	   			$('.login-error').append('Some internal error, please refresh page and try again Later');
+	    	   		}
+	    	   		else{
+	    	   			$('.login-error').append(data.description);
+	    	   		}		    	   		
+	    	   		console.log('append error msg = '+data.description);
+	    	   		$('#ajax_loading').hide();
+	    	   	}
+	       },
+	       beforeSend: function(){
+	    	   console.log('BeforeSend jsonString -'+jsonString);
+	    	   if(navigator.cookieEnabled ==false){
+	    		   window.location='/HalalWeb/account/enableCookie';
+	    	   }		    	   
+	       },
+	       error: function(jqXHR, textStatus, errorThrown){
+	    	   $('.login-error').append('Some internal error, please refresh page and try again Later');
+	    	   console.log("Something really bad happened- "+textStatus+", ERROR - " + errorThrown);
+	       }
+	   });
+}
+
+function signUp(){
+	var email = $('#user-email').val();
+	var password = $('#user-password').val();
+	var formObject =  {"fullName": $('#user-full-name').val(), "email": email, "password": password};
+	var jsonString = JSON.stringify(formObject);
+   	$.ajax({
+	       url: 'http://localhost:9191/HalalApi/v1/account/signup',
+	       type: 'post',
+	       contentType: "application/json; charset=utf-8",
+	       data: jsonString,
+	       encode:true,
+	       success: function(data) {
+	    	   	if(data == 'success'){
+	    	   		window.location='/HalalWeb';
+	    	   	}
+	    	   	else {
+	    	   		if(data.email == $('#username').val()){
+	    	   			$('.login-error').append('Some internal error, please refresh page and try again Later');
+	    	   		}
+	    	   		else{
+	    	   			$('.login-error').append(data.description);
+	    	   		}		    	   		
+	    	   		console.log('append error msg = '+data.description);
+	    	   		$('#ajax_loading').hide();
+	    	   	}
+	       },
+	       beforeSend: function(){
+	    	   console.log('BeforeSend jsonString -'+jsonString);
+	    	   if(navigator.cookieEnabled ==false){
+	    		   window.location='/HalalWeb/account/enableCookie';
+	    	   }		    	   
+	       },
+	       error: function(jqXHR, textStatus, errorThrown){
+	    	   $('.login-error').append('Some internal error, please refresh page and try again Later');
+	    	   console.log("Something really bad happened- "+textStatus+", ERROR - " + errorThrown);
+	       }
+	   });
+}
+
 function createLoginCookie(data, rememberMe){
 	//expiry in mins
-	var sTok=data.sessionToken;
-	if(sTok.length >=1){
+	if(data.sessionToken.length >=1){
 		createCookie('hst', data.sessionToken, 30, '/');
 	}
-	var uaTok=data.userActivityToken;
 	//expires in 30 days
 	if(rememberMe == true){
 		createCookie('huat', data.userActivityToken, 30*24*60*30, '/');
@@ -76,3 +120,4 @@ function createLoginCookie(data, rememberMe){
 		createCookie('hud', data.name+'|'+data.userId, 30, '/');
 	}
 }
+

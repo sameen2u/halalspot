@@ -34,16 +34,16 @@
     </form>
     <form class="email-signup">
       <div class="u-form-group">
-        <input type="email" placeholder="Email"/>
+        <input id="user-full-name" type="email" placeholder="Full Name"/>
       </div>
       <div class="u-form-group">
-        <input type="password" placeholder="Password"/>
+        <input id="user-email" type="password" placeholder="Email"/>
       </div>
       <div class="u-form-group">
-        <input type="password" placeholder="Confirm Password"/>
+        <input id="user-password" type="password" placeholder="Password"/>
       </div>
       <div class="u-form-group">
-        <button>Sign Up</button>
+        <button class="signupSubmitButton" type="button" onclick="signUp()">Sign Up</button>
       </div>
     </form>
   </div>

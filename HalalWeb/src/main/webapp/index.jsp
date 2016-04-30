@@ -7,8 +7,7 @@ $(document).ready(function(){
 	$('.form-wrapper').css({'padding': '14px','width':'63%'});
 	$('.searchTitle').css({'width':'28%'});
 	$('.searchBox').css({'width':'56%'});
-	$('.search-form-header').detach().appendTo('.banner-info');
-	
+	$('.search-form-header').detach().appendTo('.banner-info');	
 });
 </script>
 

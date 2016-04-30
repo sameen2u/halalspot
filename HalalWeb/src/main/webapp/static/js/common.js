@@ -1,9 +1,30 @@
 $(document).ready(function(){
-	
+	//logic to display User's Profile and Logout buttons on header
+	var hud = readCookie('hud');
+	if(hud != -1 && hud !=null && hud.length >3){
+		var arr = hud.split("|");
+		console.log(arr[0]);
+		$('.user-profile-link a').prepend(arr[0]);
+		$('.login-link').hide();
+		$('.user-profile-link').show();
+		$('.logout-link').show();
+	}
+	else{
+		$('.login-link').show();
+		$('.user-profile-link').hide();
+		$('.logout-link').hide();
+	}
 });
 
 function search(){
 	window.location='/HalalWeb/search';
+}
+
+function removeLoginToken(){
+	deleteCookie("hst");
+	deleteCookie("huat");
+	deleteCookie("hud");
+	window.location='/HalalWeb';
 }
 
 function readCookie(name) {
@@ -18,10 +39,9 @@ function readCookie(name) {
 }
 
 function createCookie(name , value, expiry, urlPath){
-	document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expiry + "; path="+urlPath;
+	document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value)+ expiry + "; path="+urlPath;
 }
 
 function deleteCookie(name){
-	$.cookie(name, null);
-	$.removeCookie(name);
+	createCookie(name, "", -1,"/");
 }

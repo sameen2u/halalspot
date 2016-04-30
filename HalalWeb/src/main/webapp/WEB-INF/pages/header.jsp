@@ -6,6 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Spoon graphic by <a href="http://www.freepik.com">Freepik</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>
 -->
 <!DOCTYPE html>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <html>
 <head>
 <title>Halal Spot</title>
@@ -118,7 +119,9 @@ Spoon graphic by <a href="http://www.freepik.com">Freepik</a> from <a href="http
 				<div class="header-right">
 						<div class="login-section">
 							<ul>
-								<li><a href="login">Login</a>  </li> |
+								<li class="login-link"><a href="login">Login</a>  </li>
+								<li class="user-profile-link" style="display: none;"><a href="">'s Profile</a></li>|
+								<li class="logout-link" style="display: none;"><a href="" onclick="removeLoginToken()">Logout</a>  </li>
 								<li><a href="addRestaurant">Add Restaurant</a></li>
 								<div class="clearfix"></div>
 							</ul>
