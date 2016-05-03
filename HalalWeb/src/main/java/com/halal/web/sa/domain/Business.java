@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-public class Restaurant {
+public class Business {
 	private String name;
 	private String description;
 	private List<String> cuisine;

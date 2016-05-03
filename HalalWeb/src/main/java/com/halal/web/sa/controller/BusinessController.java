@@ -24,8 +24,7 @@ public class BusinessController extends BaseController{
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public ModelAndView addRestaurant(HttpServletRequest request, HttpServletResponse response, ModelAndView modelAndView) throws ApplicationException{
-		modelAndView.setViewName("items/electronicMainPage");
-		request.setAttribute("method", "electronics");
+		modelAndView.setViewName("business/successBusiness");
 		return super.performExecute(request, response, modelAndView);
 	}
 	

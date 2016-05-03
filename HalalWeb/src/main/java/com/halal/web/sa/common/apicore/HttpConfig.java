@@ -1,6 +1,7 @@
 package com.halal.web.sa.common.apicore;
 
 import javax.annotation.PostConstruct;
+
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -14,16 +15,16 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class HttpConfig {
 	
-	 	@Value("${http-pool.maxConnections}")
+	 	@Value("1000")
 	    private int maxPoolConnections;
 
-	    @Value("${http-pool.routeMaxConnections}")
+	    @Value("200")
 	    private int maxConnectionsPerRoute;
 
-	    @Value("${http-timeouts.socketReadTimeout}")
+	    @Value("5000")
 	    private int socketReadTimeout;
 
-	    @Value("${http-timeouts.socketConnectTimeout}")
+	    @Value("2000")
 	    private int socketConnectTimeout;
 
 	    private RestTemplate restTemplate;

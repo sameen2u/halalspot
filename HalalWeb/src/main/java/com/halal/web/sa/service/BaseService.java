@@ -17,7 +17,7 @@ import org.springframework.util.StringUtils;
 
 public abstract class BaseService
 {
-  protected static ResourceBundle resourceBundle = ResourceBundle.getBundle("Browse");
+  protected static ResourceBundle resourceBundle = ResourceBundle.getBundle("Application");
  
   @Autowired
   ApiService apiService;
@@ -46,6 +46,8 @@ public abstract class BaseService
     }
     throw new ApplicationException("Calling incorect Method, call GET or POST method");
   }
+  
+  protected abstract String buildRequestParam(HttpServletRequest paramHttpServletRequest);
   
   protected abstract String buildServiceUrl(HttpServletRequest paramHttpServletRequest);
   

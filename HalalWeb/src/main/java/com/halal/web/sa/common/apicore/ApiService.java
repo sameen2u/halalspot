@@ -20,12 +20,10 @@ public class ApiService {
 	@Autowired
 	HttpConfig httpConfig;
 	
-	RestTemplate restTemplate = httpConfig.getRestTemplate();
-	
 	public String getMethod(String url, boolean isCacheable) throws ApplicationException{
 		if(StringUtils.isEmpty(url)){
 				try{
-					ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
+					ResponseEntity<String> responseEntity = httpConfig.getRestTemplate().getForEntity(url, String.class);
 					if(responseEntity.getStatusCode() == HttpStatus.OK){
 						if(isCacheable){
 							ApiResponseRegistry.getInstance().putResponse(url, responseEntity.getBody());
@@ -59,7 +57,7 @@ public class ApiService {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(mediaType);
 		HttpEntity<String> httpEntity = new HttpEntity<String>(jsonObj.toString(), headers);
-		ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, httpEntity, String.class);
+		ResponseEntity<String> responseEntity = httpConfig.getRestTemplate().exchange(url.toString(), HttpMethod.POST, httpEntity, String.class);
 		return responseEntity.getBody();
 	}
 

@@ -4162,7 +4162,7 @@ a.morebtn {
         box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
     }
     
-    .form-wrapper input.searchTitle {
+    .form-wrapper input.searchLocation {
         width: 28%;
         height: 40px;
         padding: 10px 5px;
@@ -4175,7 +4175,7 @@ a.morebtn {
         border-radius: 3px 0 0 3px;      
     }
 
-	 .form-wrapper input.searchBox {
+	 .form-wrapper input.searchKeyword {
         width: 62%;
         height: 40px;
         padding: 10px 5px;

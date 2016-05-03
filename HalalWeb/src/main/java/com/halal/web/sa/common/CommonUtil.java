@@ -5,28 +5,45 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang.StringUtils;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
+import com.google.gson.Gson;
 
 public class CommonUtil {
-	
-	private static ResourceBundle resourceBundle = ResourceBundle.getBundle("Browse");
-	private static final String HOST_NAME = "HOST";
-	private static final String PORT_NUM = "PORT";
+	private static ResourceBundle resourceBundle = ResourceBundle.getBundle("Environment");
+	private static final String HOST_NAME = "API_HOST";
+	private static final String PORT_NUM = "API_PORT";
 	private static final ObjectMapper mapper = new ObjectMapper();
 	private static final ObjectReader reader = mapper.reader(HashMap.class);
+	public static Gson gson = new Gson();
 	
-	public static String buildUrl(String endPointUrl, String keyword){
+	public static String buildUrl(String endPointUrl, Map<String, String> requestProperty){
 		String host = resourceBundle.getString(HOST_NAME);
 		String port = resourceBundle.getString(PORT_NUM);
-		if(keyword == null){
-			return host+":"+port+endPointUrl;
+		String serviceUrl;
+		serviceUrl = host+":"+port+"/"+endPointUrl;
+		if(requestProperty !=null && !requestProperty.isEmpty()){
+			return serviceUrl+constructQuery(requestProperty);
 		}
-		else{
-			return host+":"+port+endPointUrl+"?keyword="+keyword;
+		return serviceUrl;
+	}
+	
+	public static String constructQuery(Map<String, String> requestProperty) {
+		StringBuilder query = new StringBuilder();
+		for (Map.Entry<String, String> entry : requestProperty.entrySet()) {
+			if (entry.getValue() != null) {
+				query.append(entry.getKey());
+				query.append("=");
+				query.append(entry.getValue());
+				query.append("&");
+			}
 		}
-		
+		// Removing unwanted & char at the end of the url String.
+		return StringUtils.removeEnd(query.toString(), "&");
 	}
 	
 	public static Object buildDomainMap(String responseString) {

@@ -5,8 +5,8 @@ $(document).ready(function(){
 	//Reshaping and Aligning the Search box for homepage 
 	$('.menu-bar').hide();
 	$('.form-wrapper').css({'padding': '14px','width':'63%'});
-	$('.searchTitle').css({'width':'28%'});
-	$('.searchBox').css({'width':'56%'});
+	$('.searchLocation').css({'width':'28%'});
+	$('.searchKeyword').css({'width':'56%'});
 	$('.search-form-header').detach().appendTo('.banner-info');	
 });
 </script>
@@ -20,12 +20,6 @@ $(document).ready(function(){
 							<h2>Only Halal</h2>
 						</div>
 					</div>
-			
-			<!-- <form class="form-wrapper cf" style="padding: 14px;     width: 63%;">
-     			<input class="searchTitle" "text" placeholder="Search location" required style="width: 28%;">
-			  	<input class="searchBox" type="text" placeholder="Search for... restaurant, cuisine, dish" required style="width: 56%;">
-				<button type="button" onclick="search()">Search</button>
-			</form> -->
 				</div>
 			</div>
 		</div>

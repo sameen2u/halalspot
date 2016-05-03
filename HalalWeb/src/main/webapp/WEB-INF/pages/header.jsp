@@ -120,9 +120,9 @@ Spoon graphic by <a href="http://www.freepik.com">Freepik</a> from <a href="http
 						<div class="login-section">
 							<ul>
 								<li class="login-link"><a href="login">Login</a>  </li>
-								<li class="user-profile-link" style="display: none;"><a href="">'s Profile</a></li>|
+								<li class="user-profile-link" style="display: none;"><a href="">'s Profile</a></li>
 								<li class="logout-link" style="display: none;"><a href="" onclick="removeLoginToken()">Logout</a>  </li>
-								<li><a href="addRestaurant">Add Restaurant</a></li>
+								<li><a href="addBusiness">Add Restaurant</a></li>
 								<div class="clearfix"></div>
 							</ul>
 						</div>
@@ -134,10 +134,10 @@ Spoon graphic by <a href="http://www.freepik.com">Freepik</a> from <a href="http
 		<div class="menu-bar">
 			<div class="container">
 				<div class="search-form-header">
-				<form class="form-wrapper cf">
-	     			<input class="searchTitle" id="autocomplete" type="text" onFocus="geolocate()"  placeholder="Search location">
-				  	<input class="searchBox" type="text" placeholder="Search for... restaurant, cuisine, dish">
-					<button type="button" onclick="search()">Search</button>
+				<form class="form-wrapper cf" action="searchBiz" method="post">
+	     			<input class="searchLocation" name="searchLocation" id="autocomplete" type="text" onFocus="geolocate()"  placeholder="Search location">
+				  	<input class="searchKeyword" name="searchKeyword" type="text" placeholder="Search for ... Restaurant, Cuisine, Dish">
+					<button type="submit" >Search</button>
 				</form>
 				</div>
 			</div>
