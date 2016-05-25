@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 import com.halal.web.sa.common.CommonUtil;
+import com.halal.web.sa.common.HalalGlobalConstants;
 
 @Service
 public class BusinessService extends BaseService{
@@ -21,9 +22,9 @@ public class BusinessService extends BaseService{
 	private static ResourceBundle resourceBundle = ResourceBundle.getBundle("Application");
 
 	@Override
-	protected String buildServiceUrl(HttpServletRequest httpServletRequest) {
+	protected String buildServiceUrl(HttpServletRequest httpServletRequest, Map<String, Object> requestParam) {
 		String endpointUrl = resourceBundle.getString("API_POST_RESTAURANT_ENPOINT");
-		return CommonUtil.buildUrl(endpointUrl, null);
+		return CommonUtil.buildUrl(endpointUrl, requestParam);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -57,20 +58,20 @@ public class BusinessService extends BaseService{
 		jsonObject.put("halalOfferings", request.getParameter("rest-halal-serving"));
 //		jsonObject.put("facility", request.getParameter("rest-landmark"));
 		jsonObject.put("otherInfo", request.getParameter("rest-other-detail"));
-		return jsonObject;
+		return jsonObject.toJSONString();
 	}
 
 	@Override
-	protected Object processResponse(String paramString,
-			HttpServletRequest paramHttpServletRequest,
-			HttpServletResponse paramHttpServletResponse) {
-		// TODO Auto-generated method stub
-		return null;
+	protected Object processResponse(String jsonString,
+			HttpServletRequest request,
+			HttpServletResponse response) {
+		return CommonUtil.buildDomainMap(jsonString);
 	}
 
 	@Override
-	protected String buildRequestParam(
-			HttpServletRequest paramHttpServletRequest) {
+	protected Map<String, Object> buildRequestParam(
+			HttpServletRequest request) {
+		request.setAttribute(HalalGlobalConstants.API_METHOD, "POST");
 		return null;
 	}
 

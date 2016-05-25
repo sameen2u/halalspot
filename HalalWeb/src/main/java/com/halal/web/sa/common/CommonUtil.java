@@ -2,6 +2,7 @@ package com.halal.web.sa.common;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -21,20 +22,20 @@ public class CommonUtil {
 	private static final ObjectReader reader = mapper.reader(HashMap.class);
 	public static Gson gson = new Gson();
 	
-	public static String buildUrl(String endPointUrl, Map<String, String> requestProperty){
+	public static String buildUrl(String endPointUrl, Map<String, Object> requestProperty){
 		String host = resourceBundle.getString(HOST_NAME);
 		String port = resourceBundle.getString(PORT_NUM);
 		String serviceUrl;
 		serviceUrl = host+":"+port+"/"+endPointUrl;
 		if(requestProperty !=null && !requestProperty.isEmpty()){
-			return serviceUrl+constructQuery(requestProperty);
+			return serviceUrl+"?"+constructQuery(requestProperty);
 		}
 		return serviceUrl;
 	}
 	
-	public static String constructQuery(Map<String, String> requestProperty) {
+	public static String constructQuery(Map<String, Object> requestProperty) {
 		StringBuilder query = new StringBuilder();
-		for (Map.Entry<String, String> entry : requestProperty.entrySet()) {
+		for (Map.Entry<String, Object> entry : requestProperty.entrySet()) {
 			if (entry.getValue() != null) {
 				query.append(entry.getKey());
 				query.append("=");
@@ -44,6 +45,36 @@ public class CommonUtil {
 		}
 		// Removing unwanted & char at the end of the url String.
 		return StringUtils.removeEnd(query.toString(), "&");
+	}
+	
+	/**
+	 * Get the JSON List object from Json map object
+	 * @param jsonMap
+	 * @param key
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public static List<Map<String,Object>> getJsonList(Map<String,Object> jsonMap,String key){
+		if(null!= jsonMap && jsonMap.get(key) != null && !jsonMap.get(key).equals("")){
+			return (List<Map<String, Object>>)jsonMap.get(key);
+		}else{
+			return null;
+		}
+	}
+	
+	public static Map<String,Object> getJsonMap(Map<String,Object> jsonMap, String key){
+		if (jsonMap == null || key == null)
+			return null;
+		
+		try {
+			if (key.contains(".")) {
+				String newKey = key.substring(0, key.indexOf("."));
+				String remainingKey = key.substring(key.indexOf(".") + 1, key.length());
+				return getJsonMap(getJsonMap(jsonMap, newKey), remainingKey);
+			} else {
+				return (Map<String, Object>)jsonMap.get(key);
+			}
+		} catch (ClassCastException cce) {return null;}
 	}
 	
 	public static Object buildDomainMap(String responseString) {

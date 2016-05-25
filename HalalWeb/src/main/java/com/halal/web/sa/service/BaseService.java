@@ -1,6 +1,7 @@
 package com.halal.web.sa.service;
 
 import com.halal.web.sa.common.CommonUtil;
+import com.halal.web.sa.common.HalalGlobalConstants;
 import com.halal.web.sa.common.apicore.ApiService;
 import com.halal.web.sa.common.registry.ApiResponseRegistry;
 import com.halal.web.sa.core.exception.ApplicationException;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.util.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 public abstract class BaseService
 {
@@ -22,38 +23,49 @@ public abstract class BaseService
   @Autowired
   ApiService apiService;
   
-  public Object executeService(HttpServletRequest request, HttpServletResponse response)
-    throws ApplicationException
-  {
-    String serviceURL = buildServiceUrl(request);
-    String responseJson = null;
-    if (StringUtils.endsWithIgnoreCase(request.getMethod(), "GET"))
-    {
-      Map cacheMap = ApiResponseRegistry.getInstance().getCacheMap();
-      if (cacheMap.containsKey(serviceURL)) {
-        return CommonUtil.buildDomainMap((String)cacheMap.get(serviceURL));
-      }
-      responseJson = apiService.getMethod(serviceURL, isCacheable());
-      if (StringUtils.isEmpty(responseJson)) {
-        throw new ApplicationException("problem here- Empty JSON response String");
-      }
-      return CommonUtil.buildDomainMap(responseJson);
-    }
-    if (StringUtils.endsWithIgnoreCase(request.getMethod(), "POST"))
-    {
-      responseJson = apiService.postMethod(serviceURL, buildInputDataObject(request), MediaType.APPLICATION_JSON, isCacheable());
-      return processResponse(responseJson, request, response);
-    }
-    throw new ApplicationException("Calling incorect Method, call GET or POST method");
+  public Object executeService(HttpServletRequest request, HttpServletResponse response)  throws ApplicationException {
+	  Map<String, Object> requestParam = buildRequestParam(request);
+	  String serviceURL = buildServiceUrl(request, requestParam);
+	  String responseJson = null;
+	  Object object = null;
+	  if(serviceURL !=null){
+		  
+	  }
+	  if(StringUtils.equals((String) request.getAttribute(HalalGlobalConstants.API_METHOD), "GET")){
+		  Map cacheMap = ApiResponseRegistry.getInstance().getCacheMap();
+	      if (cacheMap !=null && cacheMap.containsKey(serviceURL)) {
+	    	  String jsonString = (String) cacheMap.get(serviceURL);
+	    	  object = processResponse(responseJson, request, response);//CommonUtil.buildDomainMap(jsonString);
+	    	  return object;
+	      }
+	      responseJson = apiService.getMethod(serviceURL, isCacheable());
+	      if (StringUtils.isEmpty(responseJson)) {
+	    	  throw new ApplicationException("problem here- Empty JSON response String");
+	      }
+	      object = processResponse(responseJson, request, response); //CommonUtil.buildDomainMap(responseJson);
+//	      return object; 
+	  }
+	  else if (StringUtils.equals((String) request.getAttribute(HalalGlobalConstants.API_METHOD), "POST")){
+	      responseJson = apiService.postMethod(serviceURL, buildInputDataObject(request), MediaType.APPLICATION_JSON, isCacheable());
+	      if(!StringUtils.isEmpty(responseJson)){
+	    	  object = processResponse(responseJson, request, response);
+	      }
+	  }
+	  else
+		  throw new ApplicationException("Calling incorect Method, call GET or POST method");
+	return object;
   }
   
-  protected abstract String buildRequestParam(HttpServletRequest paramHttpServletRequest);
+  /**
+   * This method builds query parameters for the api endpoints url
+   */
+  protected abstract Map<String, Object> buildRequestParam(HttpServletRequest request);
   
-  protected abstract String buildServiceUrl(HttpServletRequest paramHttpServletRequest);
+  protected abstract String buildServiceUrl(HttpServletRequest request, Map<String, Object> requestParam);
   
-  protected abstract Object buildInputDataObject(HttpServletRequest paramHttpServletRequest);
+  protected abstract Object buildInputDataObject(HttpServletRequest request);
   
-  protected abstract Object processResponse(String paramString, HttpServletRequest paramHttpServletRequest, HttpServletResponse paramHttpServletResponse);
+  protected abstract Object processResponse(String paramString, HttpServletRequest request, HttpServletResponse response) throws ApplicationException;
   
   /*protected String invokeService(String serviceURL, boolean isCacheable)
     throws ApplicationException
@@ -68,6 +80,6 @@ public abstract class BaseService
   */
   protected boolean isCacheable()
   {
-    return true;
+    return false;
   }
 }

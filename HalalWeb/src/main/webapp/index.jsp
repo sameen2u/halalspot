@@ -1,6 +1,6 @@
 
 <%@ include file="WEB-INF/pages/header.jsp"%>
-<<script type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function(){
 	//Reshaping and Aligning the Search box for homepage 
 	$('.menu-bar').hide();

@@ -21,7 +21,7 @@ public class ApiService {
 	HttpConfig httpConfig;
 	
 	public String getMethod(String url, boolean isCacheable) throws ApplicationException{
-		if(StringUtils.isEmpty(url)){
+		if(!StringUtils.isBlank(url)){
 				try{
 					ResponseEntity<String> responseEntity = httpConfig.getRestTemplate().getForEntity(url, String.class);
 					if(responseEntity.getStatusCode() == HttpStatus.OK){
@@ -56,7 +56,7 @@ public class ApiService {
 	public String postMethod(String url, Object jsonObj, MediaType mediaType, boolean isCacheable){
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(mediaType);
-		HttpEntity<String> httpEntity = new HttpEntity<String>(jsonObj.toString(), headers);
+		HttpEntity<String> httpEntity = new HttpEntity<String>((String)jsonObj, headers);
 		ResponseEntity<String> responseEntity = httpConfig.getRestTemplate().exchange(url.toString(), HttpMethod.POST, httpEntity, String.class);
 		return responseEntity.getBody();
 	}

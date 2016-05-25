@@ -1,30 +1,117 @@
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ include file="../header.jsp"%>
+<style>
+ .cuisineUl{
+	display: inline; list-style: none; 
+}
+.cuisineUl li{
+	display: inline; 
+}
+.cuisineUl li:AFTER {
+content: ", ";
+} 
+	
+/* Pagination style */
 
+a {
+    color: #4A4A4A;
+    border: 0; outline: 0;
+}
+
+.pagination {
+    text-align: center;
+    width: 100%;
+}
+.pagination a, .pagination strong {
+    background: #fff;
+    display: inline-block;
+    margin-right: 3px;
+    padding: 4px 12px;
+    text-decoration: none;
+	line-height: 1.5em;
+	
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.pagination a:hover {
+    background-color: #BEBEBE;
+    color: #fff;
+}
+.pagination a:active {
+	background: rgba(190, 190, 190, 0.75);
+}
+.pagination strong {
+    color: #fff;
+    background-color: #d83c3c;
+}
+					
+</style>
 	<!-- header-section-ends -->
 	<!-- content-section-starts -->
 	<div class="Popular-Restaurants-content">
 		<div class="Popular-Restaurants-grids">
 			<div class="container">
-				<div class="Popular-Restaurants-grid wow fadeInRight" data-wow-delay="0.4s">
+			<!-- globalmap - ${globalMap} --> 
+			<c:forEach var="business" items="${globalMap.searchBusinesses}" >
+				<div class="Popular-Restaurants-grid wow fadeInRight" data-wow-delay="0.2s">
 					<div class="col-md-3 restaurent-logo">
 						<img src="http://localhost:9090/HalalWeb/static/images/restaurent-logo1.jpg" class="img-responsive" alt="" />
 					</div>
 					<div class="col-md-2 restaurent-title">
 						<div class="logo-title">
-							<h4><a href="#">pizza hut</a></h4>
+							<h4><a href="#">${business.name}</a></h4>
 						</div>
+						<div class="search-biz-address"><b>${business.address.locality}, ${business.address.city}</b></div>
+						
+						<div class="search-biz-cuisine"><label>Cuisine:</label>&emsp;
+							<c:forEach var="cuisine" items="${business.cuisine}" >
+								<ul class="cuisineUl"><li>${cuisine}</li></ul>
+							</c:forEach>
+						</div>	
+						<div class="search-biz-hours"><label>Working Hours:</label>&emsp; 11 am to 10 pm</div>
+						<div class="search-biz-authenticity"><label>Halal Authenticity:</label>&emsp; ${business.authenticity}</div>
+						<!-- <div class="search-biz-feature"><label>Features:</label>&emsp; Outdoor seating, Take away, Home delivery ...</div> -->
+					</div>
+					<div class="col-md-7 buy">	
+						<div class="search-biz-distance"><label>Distance:</label>&emsp; ${business.distance} Km</div>
+						
 						<div class="rating">
 							<span>ratings</span>
 							<a href="#"> <img src="http://localhost:9090/HalalWeb/static/images/star1.png" class="img-responsive" alt="">(004)</a>
 						</div>
-					</div>
-					<div class="col-md-7 buy">
-						<span>$45</span>
-						<a class="morebtn hvr-rectangle-in" href="orders-list.html">buy</a>
+						
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<div class="Popular-Restaurants-grid wow fadeInLeft" data-wow-delay="0.4s">
+				</c:forEach>
+				
+				<div class="pagination clearfix">
+					
+					<ul class="pagination-ul">
+						<c:forEach var="page" items="${globalMap.pagination}" >
+							<!-- <li><a href="#">«</a>&nbsp;</li> selected = ${page.isSelectedPage}-->
+							<li><a href="${page.paginationUrl}">
+								<c:if test="${page.isSelectedPage}"><strong></c:if>	
+									${page.label}
+								<c:if test="${page.isSelectedPage}"></strong></c:if>	
+							</a>&nbsp;</li>
+							<!-- <li><strong>2</strong>&nbsp;</li>
+							<li><a href="#">3</a>&nbsp;</li> -->
+							<!-- <li><a href="#">»</a>&nbsp;</li> -->
+							</c:forEach>
+						</ul>
+						
+						
+						<!-- <a href="#">1</a>
+						<strong>2</strong>
+						<a href="#">3</a>
+						
+						<a href="#">»</a>
+						&nbsp;<a href="#">Last</a> -->
+				</div>
+				
+				<!-- <div class="Popular-Restaurants-grid wow fadeInLeft" data-wow-delay="0.4s">
 					<div class="col-md-3 restaurent-logo">
 						<img src="http://localhost:9090/HalalWeb/static/images/restaurent-logo2.jpg" class="img-responsive" alt="" />
 					</div>
@@ -80,7 +167,7 @@
 						<a class="morebtn hvr-rectangle-in" href="orders-list.html">buy</a>
 					</div>
 					<div class="clearfix"></div>
-				</div>
+				</div> 
 				<div class="Popular-Restaurants-grid wow fadeInRight" data-wow-delay="0.4s">
 					<div class="col-md-3 restaurent-logo">
 						<img src="http://localhost:9090/HalalWeb/static/images/restaurent-logo5.jpg" class="img-responsive" alt="" />
@@ -118,7 +205,7 @@
 						<a class="morebtn hvr-rectangle-in" href="orders-list.html">buy</a>
 					</div>
 					<div class="clearfix"></div>
-				</div>
+				</div>-->
 			</div>
 		</div>
 	</div>

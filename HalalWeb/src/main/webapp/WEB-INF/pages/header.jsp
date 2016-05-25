@@ -134,9 +134,9 @@ Spoon graphic by <a href="http://www.freepik.com">Freepik</a> from <a href="http
 		<div class="menu-bar">
 			<div class="container">
 				<div class="search-form-header">
-				<form class="form-wrapper cf" action="searchBiz" method="post">
-	     			<input class="searchLocation" name="searchLocation" id="autocomplete" type="text" onFocus="geolocate()"  placeholder="Search location">
-				  	<input class="searchKeyword" name="searchKeyword" type="text" placeholder="Search for ... Restaurant, Cuisine, Dish">
+				<form class="form-wrapper cf" action="searchBiz">
+	     			<input class="searchLocation" name="loc" id="autocomplete" type="text" onFocus="geolocate()"  placeholder="Search location">
+				  	<input class="searchKeyword" name="keyword" type="text" placeholder="Search for ... Restaurant, Cuisine, Dish">
 					<button type="submit" >Search</button>
 				</form>
 				</div>

@@ -35,7 +35,8 @@ ul{
 	padding:0;
 }
 label{
-	margin:0;
+	margin:2px;
+	color: gray;
 }
 .header {
 	border-top: 3px solid #5BBD50;
@@ -2339,20 +2340,20 @@ address {
 	color:#000000;
 	font-size:2em;
 	font-weight:500;
-	font-family: 'Lobster Two', cursive;
+	font-family: Arial, cursive;
 	margin:5px 0 12px 0;
 }
 .logo-title{
-	border-bottom:1px dotted #000000;
+	/* border-bottom:1px dotted #000000; */
 	width: 63%;	
-	margin-bottom: 0.8em;
+	margin-bottom: -0.6em;
 }
 .buy{
-	text-align:right;
-	margin-top: 0.8em;
+	text-align:left;
+	margin-top: 2.5em;
 }
 .restaurent-title a {
-		color: #000000;
+		color: #e54040;
 		text-decoration: none;
 	}
 .restaurent-title a:hover{
@@ -2527,6 +2528,9 @@ a.morebtn{
 	.form-list span {
 		font-size: 17px;
 	}
+	.search-biz-distance label{
+		margin-bottom: 1em;
+	} 
 	.srch button {
 		background: url('../images/img-sprite.png') no-repeat 0px -53px;
 		width: 60px;
@@ -4273,4 +4277,14 @@ a.morebtn {
 .byline p a{
   color:#d83c3c;
   text-decoration:none;
+  
+ 
+}
+
+.pagination-ul{
+	list-style-type:none;
+}
+
+.pagination-ul li{
+	display: inline;
 }
